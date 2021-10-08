@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 typedef unsigned char *byte_pointer;
 
@@ -26,14 +27,28 @@ void show_pointer(void *x)
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
 
+void test_show_bytes(int val)
+{
+    int ival = val;
+    float fval = (float)ival;
+    int *pval = &ival;
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+}
+
 int main()
 {
-    int a = 1024;
-    float b = 3.14;
-    int* p = &a;
-    show_int(a);
-    show_float(b);
-    show_pointer(p);
-    
+    test_show_bytes(12345);
+    int a = 0x12345678;
+    byte_pointer ap = (byte_pointer) &a;
+    show_bytes(ap, 1);
+    show_bytes(ap, 2);
+    show_bytes(ap, 3);
+    show_int(2607352);
+    float f = 3510593.0;
+    show_float(2607352.0);
+    const char *m = "mnopqr";
+    show_bytes((byte_pointer)m, strlen(m));
     return 0;
 }
