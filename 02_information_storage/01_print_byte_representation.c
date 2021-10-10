@@ -50,5 +50,11 @@ int main()
     show_float(2607352.0);
     const char *m = "mnopqr";
     show_bytes((byte_pointer)m, strlen(m));
+    
+    short x = 12345;
+    short mx = -x;
+    show_bytes((byte_pointer)&x, sizeof(short));
+    show_bytes((byte_pointer)&mx, sizeof(short));
+
     return 0;
 }
