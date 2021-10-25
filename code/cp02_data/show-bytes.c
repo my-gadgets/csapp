@@ -62,6 +62,64 @@ void float_eg()
     printf("For x = %d\n", x);
     show_int(x);
     show_float(f);
+
+    x = 3510593;
+    f = (float)x;
+    printf("For x = %d\n", x);
+    show_int(x);
+    show_float(f);
 }
+
+void string_ueg()
+{
+    const char *s = "ABCDEF";
+    show_bytes((byte_pointer)s, strlen(s));
+}
+
+void string_leg()
+{
+    const char *s = "abcdef";
+    show_bytes((byte_pointer)s, strlen(s));
+}
+
+void show_twocomp()
+{
+    short x = 12345;
+    short mx = -x;
+
+    show_bytes((byte_pointer)&x, sizeof(short));
+    show_bytes((byte_pointer)&mx, sizeof(short));
+}
+
+int main(int argc, char *argv[])
+{
+    int val = 12345;
+    if (argc > 1) {
+        if (argc > 1) {
+            val = strtol(argv[1], NULL, 0);
+        }
+        printf("Calling test_show_bytes\n");
+        test_show_bytes(val);
+    } else {
+        printf("Calling show_twocomp\n");
+        show_twocomp();
+        printf("Calling simple_show_a\n");
+        simple_show_a();
+        printf("Calling simple_show_b\n");
+        simple_show_b();
+        printf("Calling float_eg\n");
+        float_eg();
+        printf("Calling string_ueg\n");
+        string_ueg();
+        printf("Calling string_leg\n");
+        string_leg();
+    }
+    return 0;
+}
+
+
+
+
+
 
 
