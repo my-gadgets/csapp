@@ -8,6 +8,7 @@ void show_bytes(byte_pointer start, size_t len)
 {
     size_t i;
     for (i = 0; i < len; i++)
+        /* the 2 defines the precision: there will be at least 2 hex digits in the result, if the representation of the value has less digits, it is prefixed with 0's */
         printf(" %.2x", start[i]);
     printf("\n");
 }
@@ -116,10 +117,4 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-
-
-
-
-
-
 
